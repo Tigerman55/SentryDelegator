@@ -1,0 +1,35 @@
+{
+  "name": "tigerman55/sentry-delegator",
+  "description": "Expressive Delegator for Sentry",
+  "license": "BSD-3-Clause",
+  "authors": [{
+    "name": "Joseph Koch"
+  }],
+  "require": {
+    "php": "^7.2",
+    "psr/container": "^1.0",
+    "psr/http-message": "^1.0.1",
+    "zendframework/zend-stratigility": "^3.1",
+    "zendframework/zend-servicemanager": "^3.4",
+    "sentry/sdk": "^2.0"
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^3.4",
+    "webimpress/coding-standard": "dev-master",
+    "zendframework/zend-coding-standard": "2.0.0-alpha.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "SentryDelegator\\": "src/"
+    }
+  },
+  "extra": {
+    "zf" : {
+      "config-provider": "SentryMiddleware\\ConfigProvider"
+    }
+  },
+  "scripts": {
+    "cs-check": "phpcs",
+    "cs-fix": "phpcbf"
+  }
+}
