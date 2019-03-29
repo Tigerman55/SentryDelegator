@@ -25,7 +25,7 @@
   },
   "extra": {
     "zf" : {
-      "config-provider": "SentryMiddleware\\ConfigProvider"
+      "config-provider": "SentryDelegator\\ConfigProvider"
     }
   },
   "scripts": {
