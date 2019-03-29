@@ -8,3 +8,12 @@ return [
     'environment' => '[environment]',
   ],
 ];
+```
+
+## Installation
+
+You can install SentryDelegator using Composer:
+
+```bash
+$ composer require tigerman55/sentry-delegator
+```
