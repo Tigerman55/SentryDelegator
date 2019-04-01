@@ -5,14 +5,11 @@ declare(strict_types=1);
 namespace SentryDelegator;
 
 use Psr\Container\ContainerInterface;
-use Sentry\ClientBuilder;
-use Sentry\ClientInterface;
-use Sentry\State\Hub;
 use SentryDelegator\Exception\InvalidConfigException;
 
-final class ClientFactory
+class SentryMiddlewareFactory
 {
-    public function __invoke(ContainerInterface $container) : ClientInterface
+    public function __invoke(ContainerInterface $container)
     {
         $sentry = $container->get('config')['sentry'] ?? null;
 
@@ -33,9 +30,6 @@ final class ClientFactory
             $options['environment'] = $sentry['environment'];
         }
 
-        $builder = ClientBuilder::create($options);
-        Hub::getCurrent()->bindClient($builder->getClient());
-
-        return Hub::getCurrent()->getClient();
+        return new SentryMiddleware($options);
     }
 }

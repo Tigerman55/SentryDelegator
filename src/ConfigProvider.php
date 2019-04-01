@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace SentryDelegator;
 
-use Sentry\ClientInterface;
 use Zend\Stratigility\Middleware\ErrorHandler;
 
 class ConfigProvider
@@ -19,9 +18,8 @@ class ConfigProvider
     public function getDependencies() : array
     {
         return [
-            'factories'  => [
-                ClientInterface::class => ClientFactory::class,
-                ErrorListener::class   => ErrorListenerFactory::class,
+            'invokables' => [
+                ErrorListener::class => ErrorListener::class,
             ],
             'delegators' => [
                 ErrorHandler::class => [

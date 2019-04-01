@@ -6,20 +6,14 @@ namespace SentryDelegator;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Sentry\ClientInterface;
 use Throwable;
+
+use function Sentry\captureException;
 
 class ErrorListener
 {
-    private $client;
-
-    public function __construct(ClientInterface $client)
-    {
-        $this->client = $client;
-    }
-
     public function __invoke(Throwable $error, ServerRequestInterface $request, ResponseInterface $response) : void
     {
-        $this->client->captureException($error);
+        captureException($error);
     }
 }
