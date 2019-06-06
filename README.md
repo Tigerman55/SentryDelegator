@@ -17,3 +17,16 @@ You can install SentryDelegator using Composer:
 ```bash
 $ composer require tigerman55/sentry-delegator
 ```
+
+## Advanced Usage
+
+Sentry context is supported with this delegator. To add context, simply add the following in the appropriate middleware:
+
+```php
+Sentry\configureScope(function (Scope $scope) use ($context) : void {
+    $scope->setUser([
+        'email'    => $context['email'],
+        'username' => $context['username'],
+    ]);
+});
+```
