@@ -18,6 +18,14 @@ You can install SentryDelegator using Composer:
 $ composer require tigerman55/sentry-delegator
 ```
 
+## Configuration
+
+To bind your configuration to Sentry, you'll need to add the following middleware to your pipeline right below your error middleware.
+
+```php
+$app->pipe(SentryDelegator\SentryMiddleware::class);
+```
+
 ## Advanced Usage
 
 Sentry context is supported with this delegator. To add context, simply add the following in the appropriate middleware:
