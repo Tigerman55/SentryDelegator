@@ -20,10 +20,10 @@ $ composer require tigerman55/sentry-delegator
 
 ## Configuration
 
-To bind your configuration to Sentry, you'll need to add the following middleware to your pipeline right below your error middleware.
+To bind your configuration to Sentry, you'll need to invoke the following somewhere early in your application. One option, is to put this in index.php right after the container initialization.
 
 ```php
-$app->pipe(SentryDelegator\SentryMiddleware::class);
+(new ConfigureSentry())($container->get('config'))
 ```
 
 ## Advanced Usage

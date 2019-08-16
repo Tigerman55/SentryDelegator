@@ -18,9 +18,6 @@ class ConfigProvider
     public function getDependencies() : array
     {
         return [
-            'factories'  => [
-                SentryMiddleware::class => SentryMiddlewareFactory::class,
-            ],
             'invokables' => [
                 ErrorListener::class => ErrorListener::class,
             ],

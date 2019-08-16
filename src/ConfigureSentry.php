@@ -4,14 +4,15 @@ declare(strict_types=1);
 
 namespace SentryDelegator;
 
-use Psr\Container\ContainerInterface;
 use SentryDelegator\Exception\InvalidConfigException;
 
-class SentryMiddlewareFactory
+use function Sentry\init;
+
+final class ConfigureSentry
 {
-    public function __invoke(ContainerInterface $container)
+    public function __invoke(array $config) : void
     {
-        $sentry = $container->get('config')['sentry'] ?? null;
+        $sentry = $config['sentry'] ?? null;
 
         if (null === $sentry) {
             throw new InvalidConfigException(
@@ -30,6 +31,6 @@ class SentryMiddlewareFactory
             $options['environment'] = $sentry['environment'];
         }
 
-        return new SentryMiddleware($options);
+        init($options);
     }
 }
