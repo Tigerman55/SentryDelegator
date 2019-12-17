@@ -28,6 +28,8 @@ To bind your configuration to Sentry, you'll need to invoke the following somewh
 
 ## Advanced Usage
 
+You can roll your own error listener by implementing `ErrorListenerInterface`. I've also created `AsyncErrorListener` to flush errors for asynchronous applications such as react-php and swoole. You can utilize this in your config.
+
 Sentry context is supported with this delegator. To add context, simply add the following in the appropriate middleware:
 
 ```php

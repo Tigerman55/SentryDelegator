@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace SentryDelegator;
 
 use Interop\Container\ContainerInterface;
+use SentryDelegator\Listener\ErrorListenerInterface;
 use Zend\ServiceManager\Factory\DelegatorFactoryInterface;
 use Zend\Stratigility\Middleware\ErrorHandler;
 
@@ -16,7 +17,7 @@ class ListenerDelegator implements DelegatorFactoryInterface
         callable $callback,
         ?array $options = null
     ) : ErrorHandler {
-        $listener = $container->get(ErrorListener::class);
+        $listener = $container->get(ErrorListenerInterface::class);
 
         /** @var ErrorHandler $errorHandler */
         $errorHandler = $callback();

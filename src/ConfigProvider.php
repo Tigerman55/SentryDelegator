@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace SentryDelegator;
 
+use SentryDelegator\Listener\ErrorListener;
+use SentryDelegator\Listener\ErrorListenerInterface;
 use Zend\Stratigility\Middleware\ErrorHandler;
 
 class ConfigProvider
@@ -19,7 +21,7 @@ class ConfigProvider
     {
         return [
             'invokables' => [
-                ErrorListener::class => ErrorListener::class,
+                ErrorListenerInterface::class => ErrorListener::class,
             ],
             'delegators' => [
                 ErrorHandler::class => [
