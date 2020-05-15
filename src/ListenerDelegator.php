@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace SentryDelegator;
 
 use Interop\Container\ContainerInterface;
+use Laminas\ServiceManager\Factory\DelegatorFactoryInterface;
+use Laminas\Stratigility\Middleware\ErrorHandler;
 use SentryDelegator\Listener\ErrorListenerInterface;
-use Zend\ServiceManager\Factory\DelegatorFactoryInterface;
-use Zend\Stratigility\Middleware\ErrorHandler;
 
 class ListenerDelegator implements DelegatorFactoryInterface
 {

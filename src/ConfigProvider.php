@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace SentryDelegator;
 
+use Laminas\Stratigility\Middleware\ErrorHandler;
 use SentryDelegator\Listener\ErrorListener;
 use SentryDelegator\Listener\ErrorListenerInterface;
-use Zend\Stratigility\Middleware\ErrorHandler;
 
 class ConfigProvider
 {
