@@ -6,8 +6,7 @@ namespace SentryDelegator\Listener;
 
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
-use Sentry\FlushableClientInterface;
-use Sentry\State\Hub;
+use Sentry\SentrySdk;
 use Throwable;
 
 use function Sentry\captureException;
@@ -18,9 +17,7 @@ class AsyncErrorListener implements ErrorListenerInterface
     {
         captureException($error);
 
-        $client = Hub::getCurrent()->getClient();
-        if ($client instanceof FlushableClientInterface) {
-            $client->flush();
-        }
+        $client = SentrySdk::getCurrentHub()->getClient();
+        $client->flush();
     }
 }
