@@ -13,7 +13,7 @@
         "psr/http-message": "^1.0.1",
         "laminas/laminas-stratigility": "^3.1",
         "laminas/laminas-servicemanager": "^3.4",
-        "sentry/sdk": "^2.0",
+        "sentry/sdk": "^2.0||^3.1",
         "laminas/laminas-dependency-plugin": "^1.0"
     },
     "require-dev": {
