@@ -14,7 +14,7 @@
         "laminas/laminas-stratigility": "^3.1",
         "laminas/laminas-servicemanager": "^3.4",
         "sentry/sdk": "^2.0||^3.1",
-        "laminas/laminas-dependency-plugin": "^1.0"
+        "laminas/laminas-dependency-plugin": "^1.0||^2.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.4",
